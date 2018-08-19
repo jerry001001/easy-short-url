@@ -54,8 +54,11 @@ class EasyShortUrl
         if (!isset($dbConfig['password']) && $dbConfig['password'] === '') {
             throw new Exception('未传数据库密码$dbConfig["password"]');
         }
+		if (!isset($dbConfig['port']) && $dbConfig['port'] === '') {
+            throw new Exception('未传数据库密码$dbConfig["port"]');
+        }
         $this->db = Factory::create(
-            "mysql:host={$dbConfig['host']};dbname={$dbConfig['dbname']};charset=utf8",
+            "mysql:host={$dbConfig['host']};dbname={$dbConfig['dbname']};port={$dbConfig['port']};charset=utf8",
             $dbConfig['username'],
             $dbConfig['password'] 
         );
