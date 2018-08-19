@@ -27,5 +27,9 @@ CREATE TABLE `esu_url` (
   `request_num` int(11) NOT NULL DEFAULT '0' COMMENT '请求次数',
   `ip` varchar(32) NOT NULL DEFAULT '' COMMENT '请求ip',
   `created_at` datetime NOT NULL COMMENT '创建时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='长短网址对应表';
+  PRIMARY KEY (`id`),
+  KEY `code` (`code`),
+  KEY `long_url_hash` (`long_url_hash`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='长短网址对应表';
+
+
